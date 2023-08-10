@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>KML Click Capture Sample</title>
+    <style>
+      #map {
+       height: 720px;
+       width: 1200px;
+       overflow: hidden;
+       float: left;
+       border: thin solid #333;
+       }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <div id="capture"></div>
+    <script>
+		var map;
+		var src = 'https://kaohsiungstorage.blob.core.windows.net/$web/Conn.kmz';
+        //var src = 'https://webmapstorage.blob.core.windows.net/%24web/Conn.kmz';
+		//var src = 'https://developers.google.com/maps/documentation/javascript/examples/kml/westcampus.kml';
+	  
+		function initMap() {
+		  var position = {
+			lat: 22.6466679,
+			lng: 120.3097523
+		  };
+		  var map = new google.maps.Map(document.getElementById('map'), {
+			zoom: 15,
+			center: position
+		  });
+		  var marker = new google.maps.Marker({
+			position: position,
+			map: map,
+			animation: google.maps.Animation.BOUNCE
+		  });
+		  var aaLayer = new google.maps.KmlLayer({
+			url: src,
+			map: map,
+			preserveViewport: true,
+			suppressInfoWindows: false,
+		  });
+		}
+		
+    </script>
+    <script defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCk8wkvFJGrdwF_mnY_hsT-ysnsLQfpU7Q&callback=initMap">
+    </script>
+  </body>
+</html>
+
+
+
+
+
